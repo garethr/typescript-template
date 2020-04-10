@@ -1,0 +1,70 @@
+{
+  "name": "change",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "files": [
+    "dist"
+  ],
+  "bin": {
+    "change": "dist/index.js"
+  },
+  "license": "Apache-2.0",
+  "keywords": [],
+  "scripts": {
+    "test": "jest",
+    "lint": "eslint --cache 'src/**/*.{js,ts}'",
+    "clean": "rm -fr dist",
+    "build": "tsc",
+    "format": "prettier --write '{src,test,scripts}/**/*.{js,ts}'",
+    "package": "pkg . --out-path dist",
+    "prepare": "npm run build",
+    "pretest": "npm run build",
+    "posttest": "npm run lint"
+  },
+  "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@types/node": "^10.17.19",
+    "@typescript-eslint/eslint-plugin": "^2.27.0",
+    "@typescript-eslint/parser": "^2.27.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-jest": "^23.8.2",
+    "jest": "^25.3.0",
+    "pkg": "^4.4.6",
+    "prettier": "^2.0.4",
+    "ts-jest": "^25.3.1",
+    "tslint": "^6.1.1",
+    "typescript": "~3.8.0"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "prettier",
+      "prettier/@typescript-eslint"
+    ],
+    "plugins": [
+      "jest",
+      "@typescript-eslint"
+    ],
+    "env": {
+      "jest": true,
+      "node": true
+    }
+  },
+  "dependencies": {},
+  "pkg": {
+    "scripts": [
+      "dist/**/*.js"
+    ],
+    "targets": [
+      "node12-alpine-x64",
+      "node12-linux-x64",
+      "node12-macos-x64",
+      "node12-win-x64"
+    ]
+  }
+}
