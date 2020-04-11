@@ -14,13 +14,16 @@
   "keywords": [],
   "scripts": {
     "test": "jest",
-    "lint": "eslint --cache 'src/**/*.{js,ts}'",
+    "lint": "eslint --cache 'src/**/*.ts'",
     "clean": "rm -fr dist",
     "build": "tsc",
-    "format": "prettier --write '{src,test,scripts}/**/*.{js,ts}'",
+    "format": "prettier --write 'src/**/*.ts'",
     "package": "pkg . --out-path dist",
+    "linux": "pkg . -t node12-linux",
     "prepare": "npm run build",
     "pretest": "npm run build",
+    "prepackage": "npm run build",
+    "prelinux": "npm run build",
     "posttest": "npm run lint"
   },
   "devDependencies": {
